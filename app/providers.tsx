@@ -4,6 +4,7 @@ import { CacheProvider } from '@chakra-ui/next-js'
 import { ChakraProvider } from '@chakra-ui/react'
 import {theme} from "@/config/chakra-theme";
 import SupabaseProvider from "@/providers/SupabaseProvider";
+import {MyUserContextProvider} from "@/hooks/useUser";
 
 export function Providers({
                               children
@@ -14,7 +15,9 @@ export function Providers({
         <CacheProvider>
             <ChakraProvider  theme={theme}>
                 <SupabaseProvider>
-                    {children}
+                    <MyUserContextProvider>
+                        {children}
+                    </MyUserContextProvider>
                 </SupabaseProvider>
             </ChakraProvider>
         </CacheProvider>
