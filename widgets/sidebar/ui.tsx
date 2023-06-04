@@ -4,7 +4,7 @@ import {HiHome} from "react-icons/hi";
 import {BiSearch} from "react-icons/bi";
 import {Box, Flex} from "@chakra-ui/react";
 import SidebarItem from "@/shared/ui/SidebarItem";
-import Library from "@/entities/Library/ui";
+import Library from "@/entities/library/ui";
 
 interface SidebarProps {
     children:React.ReactNode

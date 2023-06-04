@@ -3,10 +3,21 @@ import {Flex,Text} from "@chakra-ui/react";
 import {TbPlaylist} from "react-icons/tb";
 import {Icon} from "@chakra-ui/icon";
 import {AiOutlinePlus} from "react-icons/ai";
+import {useUser} from "@/hooks/useUser";
+import useAuthModal from "@/hooks/useAuthModal";
+import useUploadModal from "@/hooks/useUploadModal";
 
 const Library = () => {
-    const onClick = () => {
 
+    const {user} = useUser()
+    const authModal = useAuthModal()
+    const uploadModal = useUploadModal()
+
+    const onClick = () => {
+        if(!user){
+             return authModal.onOpen()
+        }
+        return uploadModal.onOpen()
     }
     return (
         <Flex direction={'column'}>

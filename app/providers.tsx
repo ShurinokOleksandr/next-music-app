@@ -5,6 +5,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import {theme} from "@/config/chakra-theme";
 import SupabaseProvider from "@/providers/SupabaseProvider";
 import {MyUserContextProvider} from "@/hooks/useUser";
+import ModalProvider from "@/providers/ModalProvider";
 
 export function Providers({
                               children
@@ -16,6 +17,7 @@ export function Providers({
             <ChakraProvider  theme={theme}>
                 <SupabaseProvider>
                     <MyUserContextProvider>
+                        <ModalProvider/>
                         {children}
                     </MyUserContextProvider>
                 </SupabaseProvider>
