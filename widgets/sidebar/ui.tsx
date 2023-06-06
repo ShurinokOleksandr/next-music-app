@@ -5,11 +5,13 @@ import {BiSearch} from "react-icons/bi";
 import {Box, Flex} from "@chakra-ui/react";
 import SidebarItem from "@/shared/ui/SidebarItem";
 import Library from "@/entities/library/ui";
+import {Song} from "@/types";
 
 interface SidebarProps {
     children:React.ReactNode
+    songs:Song[]
 }
-const Sidebar = ({children}:SidebarProps) => {
+const Sidebar = ({children,songs}:SidebarProps) => {
 
     const pathname = usePathname()
 
@@ -38,11 +40,13 @@ const Sidebar = ({children}:SidebarProps) => {
                     </Flex>
                 </Box>
                <Box color={'text.100'} w={'full'} h={'full'} overflowY={'auto'} bg={'bg.200'} borderRadius={5}>
-                   <Library/>
+                   <Library songs={songs}/>
                </Box>
            </Flex>
             <Flex  as={'main'} h={'full'} flex={'1 1 0%'} overflowY={'auto'} py={2}>
-                {children}
+                <Box  bg={'bg.200'} h={'full'} w={'full'} borderRadius={'lg'} overflow={'hidden'} overflowY={'auto'}>
+                    {children}
+                </Box>
             </Flex>
         </Flex>
     );

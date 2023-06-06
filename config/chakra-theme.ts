@@ -10,6 +10,7 @@ export const theme = extendTheme({
         bg:{
             100:'#cdfaf6',
             200:'#80CBC4',
+            300:'#adece4',
             white:'#FFFFFF'
         }
     },

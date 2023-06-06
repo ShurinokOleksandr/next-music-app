@@ -1,13 +1,20 @@
 'use client'
-import {Flex,Text} from "@chakra-ui/react";
+import {Box, Flex, Text} from "@chakra-ui/react";
 import {TbPlaylist} from "react-icons/tb";
 import {Icon} from "@chakra-ui/icon";
 import {AiOutlinePlus} from "react-icons/ai";
 import {useUser} from "@/hooks/useUser";
 import useAuthModal from "@/hooks/useAuthModal";
 import useUploadModal from "@/hooks/useUploadModal";
+import {Song} from "@/types";
+import MediaItem from "@/shared/ui/MediaItem";
 
-const Library = () => {
+
+
+interface LibraryProps {
+    songs:Song[]
+}
+const Library = ({songs}:LibraryProps) => {
 
     const {user} = useUser()
     const authModal = useAuthModal()
@@ -15,7 +22,7 @@ const Library = () => {
 
     const onClick = () => {
         if(!user){
-             return authModal.onOpen()
+            return authModal.onOpen()
         }
         return uploadModal.onOpen()
     }
@@ -37,7 +44,15 @@ const Library = () => {
                 />
             </Flex>
             <Flex direction={'column'} rowGap={2} mt={4} px={3}>
-                List of Songs
+                {
+                    songs.map(item =>
+                        <MediaItem
+                            key={item.id}
+                            data={item}
+                            onClick={() => {}}
+                        />
+                    )
+                }
             </Flex>
         </Flex>
     );
