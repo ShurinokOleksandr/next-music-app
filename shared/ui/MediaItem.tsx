@@ -2,7 +2,10 @@
 
 import {Song} from "@/types";
 import useLoadImage from "@/hooks/useLoadImage";
-import {Flex} from "@chakra-ui/react";
+import {Flex,Box,Text} from "@chakra-ui/react";
+import {Image} from "@chakra-ui/next-js";
+import likedImg from '../../public/liked.png'
+
 
 interface MediaItemProps {
     data:Song
@@ -25,13 +28,38 @@ const MediaItem = ({data,onClick}:MediaItemProps) => {
         <Flex
             align={'center'}
             rowGap={3}
+            columnGap={3}
             cursor={'pointer'}
-            _hover={{color:'gray.600'}}
+            _hover={{bg:'bg.300'}}
             w={'full'}
             p={2}
             rounded={'md'}
         >
-            {data.title}
+            <Box
+                position={'relative'}
+                rounded={'md'}
+                minH={'48px'}
+                minW={'48px'}
+                overflow={'hidden'}
+            >
+                <Image
+                    src={imagePath || likedImg}
+                    fill={true}
+                    style={{objectFit: "cover"}}
+                    alt={'song'}
+                />
+            </Box>
+            <Flex
+                direction={'column'}
+                overflow={'hidden'}
+            >
+                <Text isTruncated={true}>
+                    {data.title}
+                </Text>
+                <Text isTruncated={true} fontSize={'sm'}>
+                    {data.author}
+                </Text>
+            </Flex>
         </Flex>
     );
 };

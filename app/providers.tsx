@@ -2,7 +2,7 @@
 
 import { CacheProvider } from '@chakra-ui/next-js'
 import { ChakraProvider } from '@chakra-ui/react'
-import {theme} from "@/config/chakra-theme";
+import {theme} from "@/shared/config/chakra-theme";
 import SupabaseProvider from "@/providers/SupabaseProvider";
 import {MyUserContextProvider} from "@/hooks/useUser";
 import ModalProvider from "@/providers/ModalProvider";
