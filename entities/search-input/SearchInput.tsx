@@ -13,16 +13,17 @@ const SearchInput = () => {
     const debouncedValue = useDebounce<string>(value, 500);
 
     useEffect(() => {
-
-        const query = {title:debouncedValue}
+        const query = {
+            title: debouncedValue,
+        };
 
         const url = qs.stringifyUrl({
-            url:'/search',
+            url: '/search',
             query
-        })
-        
-        router.push(url)
-    },[debouncedValue, router])
+        });
+
+        router.push(url);
+    }, [debouncedValue, router]);
 
 
     return (

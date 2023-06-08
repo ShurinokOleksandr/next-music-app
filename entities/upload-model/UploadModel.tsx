@@ -175,7 +175,7 @@ const UploadModel = () => {
                                 size="md"
                                 cursor="pointer"
                             >
-                                Select image
+                                Select song
                                 <input
                                     id="song"
                                     accept=".mp3"

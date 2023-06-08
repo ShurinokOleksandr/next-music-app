@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google'
 import Sidebar from "@/widgets/sidebar/ui";
 import {Providers} from "@/app/providers";
 import getSongsByUserId from "@/action/getSongsByUserId";
+import Player from "@/app/features/player/ui";
 
 const inter = Inter({ subsets: ['latin']})
 
@@ -23,6 +24,7 @@ export default async function RootLayout({
           <Sidebar songs={userSongs}>
               {children}
           </Sidebar>
+          <Player/>
       </Providers>
       </body>
     </html>

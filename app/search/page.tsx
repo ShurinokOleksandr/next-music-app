@@ -7,13 +7,12 @@ import SearchInput from "@/entities/search-input/SearchInput";
 import SearchContent from "@/entities/search-content/SearchContent";
 
 
-interface SearchPage{
-    searchParams:{
-        title:string
-    }
-}
+interface SearchProps {
+    searchParams: { title: string }
+};
+export const revalidate = 0;
 
-const Search = async ({searchParams}:SearchPage) => {
+const Search = async ({ searchParams }: SearchProps) => {
     const songs = await getSongsByTitle(searchParams.title)
 
 

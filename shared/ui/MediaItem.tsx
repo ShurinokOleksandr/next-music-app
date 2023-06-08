@@ -9,7 +9,7 @@ import likedImg from '../../public/liked.png'
 
 interface MediaItemProps {
     data:Song
-    onClick: (id:string) => void
+    onClick?: (id:string) => void
 }
 
 const MediaItem = ({data,onClick}:MediaItemProps) => {

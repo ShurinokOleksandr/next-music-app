@@ -14,7 +14,7 @@ const HomeHeader = () => {
                     <ListItem
                         image={'/liked.png'}
                         name={'Liked songs'}
-                        href={'liked'}
+                        href={'/liked'}
                     />
                 </SimpleGrid>
             </Box>

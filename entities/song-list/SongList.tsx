@@ -2,11 +2,15 @@
 import {Song} from "@/types";
 import {Box, SimpleGrid} from "@chakra-ui/react";
 import SongItem from "@/shared/ui/SongItem";
+import {useOnPlay} from "@/hooks/useOnPlay";
 
 interface SongItemsProps {
     songs: Song[]
 }
 const SongList = ({songs}:SongItemsProps) => {
+
+
+    const onPlay = useOnPlay(songs)
 
     if(songs.length === 0 ){
         return (
@@ -21,7 +25,7 @@ const SongList = ({songs}:SongItemsProps) => {
                 songs.map((item) =>
                     <SongItem
                         key={item.id}
-                        onClick={() => {}}
+                        onClick={(id:string) => onPlay(id)}
                         data={item}
                     />)
             }
