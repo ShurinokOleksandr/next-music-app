@@ -7,14 +7,17 @@ import {useRouter} from "next/navigation";
 import {Flex} from "@chakra-ui/react";
 import MediaItem from "@/shared/ui/MediaItem";
 import LikedButton from "@/shared/ui/LikedButton";
+import {useOnPlay} from "@/hooks/useOnPlay";
 
 interface LikedContentProps {
     songs:Song[]
 }
 const LikedContent = ({songs}:LikedContentProps) => {
     const router = useRouter();
+
     const { isLoading, user } = useUser();
 
+    const onPlay = useOnPlay(songs)
 
     useEffect(() =>{
         if(!isLoading && !user){
@@ -38,7 +41,7 @@ const LikedContent = ({songs}:LikedContentProps) => {
                 songs.map((item) =>
                     <Flex key={item.id} align={'center'} rowGap={4} _hover={{bg:'bg.300'}} rounded={'lg'}  w={'full'}>
                         <Flex flex={1}>
-                            <MediaItem data={item} onClick={() =>{}}/>
+                            <MediaItem data={item} onClick={(id:string) => onPlay(id)}/>
                         </Flex>
                         <LikedButton songId={item.id}/>
                     </Flex>

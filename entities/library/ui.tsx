@@ -8,6 +8,7 @@ import useAuthModal from "@/hooks/useAuthModal";
 import useUploadModal from "@/hooks/useUploadModal";
 import {Song} from "@/types";
 import MediaItem from "@/shared/ui/MediaItem";
+import {useOnPlay} from "@/hooks/useOnPlay";
 
 
 
@@ -17,8 +18,12 @@ interface LibraryProps {
 const Library = ({songs}:LibraryProps) => {
 
     const {user} = useUser()
+
     const authModal = useAuthModal()
+
     const uploadModal = useUploadModal()
+
+    const onPlay = useOnPlay(songs)
 
     const onClick = () => {
         if(!user){
@@ -49,7 +54,7 @@ const Library = ({songs}:LibraryProps) => {
                         <MediaItem
                             key={item.id}
                             data={item}
-                            onClick={() => {}}
+                            onClick={(id:string) => onPlay(id)}
                         />
                     )
                 }

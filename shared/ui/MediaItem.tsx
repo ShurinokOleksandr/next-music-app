@@ -5,6 +5,7 @@ import useLoadImage from "@/hooks/useLoadImage";
 import {Flex,Box,Text} from "@chakra-ui/react";
 import {Image} from "@chakra-ui/next-js";
 import likedImg from '../../public/liked.png'
+import usePlayer from "@/hooks/usePlayer";
 
 
 interface MediaItemProps {
@@ -16,11 +17,13 @@ const MediaItem = ({data,onClick}:MediaItemProps) => {
 
     const imagePath = useLoadImage(data)
 
+    const player = usePlayer()
 
     const handleClick = () => {
         if(onClick){
             return onClick(data.id)
         }
+        return player.setId(data.id)
 
     }
 
@@ -34,6 +37,7 @@ const MediaItem = ({data,onClick}:MediaItemProps) => {
             w={'full'}
             p={2}
             rounded={'md'}
+            onClick={handleClick}
         >
             <Box
                 position={'relative'}

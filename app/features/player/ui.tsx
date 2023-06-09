@@ -30,9 +30,8 @@ const Player = () => {
             py={2}
             h={'80px'}
             px={4}
-        >pla
-
-            {/*<PlayerContent key={songUrl} song={song} songUrl={songUrl} />*/}
+        >
+            <PlayerContent key={songUrl} song={song} songUrl={songUrl} />
         </Box>
     );
 };

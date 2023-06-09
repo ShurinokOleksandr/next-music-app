@@ -22,12 +22,12 @@ const ListItem = ({image,name,href}:ListItemProps) => {
     return (
         <Flex onClick={onClick} as={'li'} cursor={'pointer'}    position={'relative'} align={'center'} rounded={'md'} overflow={'hidden'} columnGap={4} pr={4} bg={'bg.100'} _hover={{bg:'bg.200'}}>
             <Box position={'relative'} minH={'64px'} minW={'64px'}>
-                <Image  fill={true} objectFit={'cover'} src={image} alt={'image'}/>
+                <Image  fill={true}  src={image} alt={'image'}/>
             </Box>
             <Text fontWeight={'semibold'} py={5}>
                 {name}
             </Text>
-            <Flex position={'absolute'} rounded={'full'} align={'center'} justify={'center'} bg={'green.500'} p={4} right={5}>
+            <Flex position={'absolute'} rounded={'full'} align={'center'} justify={'center'} bg={'green.500'} p={4} right={0}>
                 <FaPlay color={'black'}/>
             </Flex>
         </Flex>

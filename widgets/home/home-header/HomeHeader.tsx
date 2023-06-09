@@ -1,9 +1,10 @@
 'use client'
-import {Box, Heading, SimpleGrid} from "@chakra-ui/react";
+import {Box, Button, Heading, SimpleGrid, useColorMode} from "@chakra-ui/react";
 import ListItem from "@/shared/ui/ListItem";
 import Header from "@/widgets/header/ui";
 
 const HomeHeader = () => {
+    const { colorMode, toggleColorMode } = useColorMode()
     return (
         <Header>
             <Box mb={2}>

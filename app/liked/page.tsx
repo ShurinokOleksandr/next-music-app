@@ -29,7 +29,7 @@ const Liked = async () => {
                                 alt="Playlist"
                             />
                         </Box>
-                        <Flex direction={'column'} columnGap={2} mt={[4,0]}>
+                        <Flex direction={'column'} columnGap={1} mt={[4,0]}>
                             <Box display={['none','block']} fontSize={'sm'}>
                                 Playlist
                             </Box>

@@ -2,10 +2,12 @@
 import {usePathname} from "next/navigation";
 import {HiHome} from "react-icons/hi";
 import {BiSearch} from "react-icons/bi";
-import {Box, Flex} from "@chakra-ui/react";
+import {Box, Flex, useColorModeValue} from "@chakra-ui/react";
 import SidebarItem from "@/shared/ui/SidebarItem";
 import Library from "@/entities/library/ui";
 import {Song} from "@/types";
+import usePlayer from "@/hooks/usePlayer";
+import {useColor} from "@/shared/config/ColorMode";
 
 interface SidebarProps {
     children:React.ReactNode
@@ -14,6 +16,10 @@ interface SidebarProps {
 const Sidebar = ({children,songs}:SidebarProps) => {
 
     const pathname = usePathname()
+
+    const {bgApp,bgSidebar,color} = useColor()
+
+    const player = usePlayer()
 
     const routes = [
         {
@@ -29,22 +35,24 @@ const Sidebar = ({children,songs}:SidebarProps) => {
             href:'/search'
         },
     ]
+
+
     return (
-        <Flex bg={'bg.100'} color={'text.100'}  h={'100vh'}>
+        <Flex bg={bgApp} color={color}  h={'100vh'}>
            <Flex display={['none','none','flex']}   flexDir={'column'}  rowGap={2} h={'full'} w={'300px'} p={2}>
-                <Box h={'fit-content'} w={'full'} bg={'bg.200'} borderRadius={5}>
+                <Box h={'fit-content'} w={'full'} bg={bgSidebar} borderRadius={5}>
                     <Flex  flexDir={'column'}  rowGap={4} paddingX={5} paddingY={4} >
                         {
-                            routes.map((item) => <SidebarItem key={item.label} {...item}/>)
+                            routes.map((item) => <SidebarItem  key={item.label} {...item}/>)
                         }
                     </Flex>
                 </Box>
-               <Box color={'text.100'} w={'full'} h={'full'} overflowY={'auto'} bg={'bg.200'} borderRadius={5}>
+               <Box color={color} w={'full'} h={'full'} overflowY={'auto'} bg={bgSidebar} borderRadius={5}>
                    <Library songs={songs}/>
                </Box>
            </Flex>
             <Flex  as={'main'} h={'full'} flex={'1 1 0%'} overflowY={'auto'} py={2}>
-                <Box  bg={'bg.200'} h={'full'} w={'full'} borderRadius={'lg'} overflow={'hidden'} overflowY={'auto'}>
+                <Box  bg={bgApp} h={'full'} w={'full'} borderRadius={'lg'} overflow={'hidden'} overflowY={'auto'}>
                     {children}
                 </Box>
             </Flex>
