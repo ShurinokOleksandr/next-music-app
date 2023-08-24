@@ -6,11 +6,14 @@ import {useRouter} from "next/navigation";
 import useDebounce from "@/hooks/useDebounce";
 import qs from "query-string";
 import {Input} from "@chakra-ui/input";
+import {useColor} from "@/shared/config/ColorMode";
 
 const SearchInput = () => {
     const router = useRouter();
     const [value, setValue] = useState<string>('');
     const debouncedValue = useDebounce<string>(value, 500);
+
+    const {color} = useColor()
 
     useEffect(() => {
         const query = {
@@ -28,8 +31,10 @@ const SearchInput = () => {
 
     return (
         <Input
+            color={color}
             placeholder={'Lets find song!'}
             value={value}
+            border={'2px solid #424874'}
             onChange={(e) => setValue(e.target.value)}
         />
     );

@@ -5,6 +5,7 @@ import {Flex} from "@chakra-ui/react";
 import MediaItem from "@/shared/ui/MediaItem";
 import LikedButton from "@/shared/ui/LikedButton";
 import {useOnPlay} from "@/hooks/useOnPlay";
+import {useColor} from "@/shared/config/ColorMode";
 
 interface SearchContentProps {
     songs:Song[]
@@ -12,6 +13,8 @@ interface SearchContentProps {
 const SearchContent = ({songs}:SearchContentProps) => {
 
     const onPlay = useOnPlay(songs);
+
+    const {hover} = useColor()
 
     if(songs.length === 0){
         return (
@@ -24,7 +27,7 @@ const SearchContent = ({songs}:SearchContentProps) => {
         <Flex  direction={'column'} columnGap={2} w={"full"} px={6}>
             {
                 songs.map((item) => (
-                    <Flex key={item.id} align={'center'} rowGap={4} w={'full'} _hover={{bg:'bg.300'}} rounded={'md'}  >
+                    <Flex key={item.id} align={'center'} rowGap={4} w={'full'} _hover={{bg:hover}} rounded={'md'}  >
                         <Flex flex={1}>
                             <MediaItem data={item} onClick={(id:string) => onPlay(id)}/>
                         </Flex>

@@ -10,6 +10,7 @@ import LikedContent from "@/entities/liked-content/LikedContent";
 export const revalidate = 0;
 const Liked = async () => {
     const likedSongs = await getLikedSongs()
+
     return (
         <Box
             rounded={'lg'}
@@ -20,7 +21,7 @@ const Liked = async () => {
 
         >
             <Header>
-                <Box mt={20}>
+                <Box mt={10}>
                     <Flex mb={2} direction={['column','row']} align={'center'} columnGap={5}>
                         <Box position={'relative'} h={[32,44]} w={[32,44]} >
                             <Image

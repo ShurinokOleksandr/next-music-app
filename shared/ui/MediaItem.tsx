@@ -6,6 +6,7 @@ import {Flex,Box,Text} from "@chakra-ui/react";
 import {Image} from "@chakra-ui/next-js";
 import likedImg from '../../public/liked.png'
 import usePlayer from "@/hooks/usePlayer";
+import {useColor} from "@/shared/config/ColorMode";
 
 
 interface MediaItemProps {
@@ -18,6 +19,8 @@ const MediaItem = ({data,onClick}:MediaItemProps) => {
     const imagePath = useLoadImage(data)
 
     const player = usePlayer()
+
+    const {hover} = useColor()
 
     const handleClick = () => {
         if(onClick){
@@ -33,9 +36,9 @@ const MediaItem = ({data,onClick}:MediaItemProps) => {
             rowGap={3}
             columnGap={3}
             cursor={'pointer'}
-            _hover={{bg:'bg.300'}}
             w={'full'}
             p={2}
+            _hover={{bg:hover}}
             rounded={'md'}
             onClick={handleClick}
         >

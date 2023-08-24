@@ -1,10 +1,10 @@
-import { Inter } from 'next/font/google'
+import {Figtree} from 'next/font/google'
 import Sidebar from "@/widgets/sidebar/ui";
 import {Providers} from "@/app/providers";
 import getSongsByUserId from "@/action/getSongsByUserId";
 import Player from "@/app/features/player/ui";
 
-const inter = Inter({ subsets: ['latin']})
+const font = Figtree({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Create Next App',
@@ -19,7 +19,7 @@ export default async function RootLayout({
     const userSongs = await getSongsByUserId()
   return (
     <html lang="en">
-      <body  style={{margin:0}} className={inter.className}>
+      <body  style={{margin:0}} className={font.className}>
       <Providers>
           <Sidebar songs={userSongs}>
               {children}

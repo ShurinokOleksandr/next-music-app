@@ -2,18 +2,20 @@ import {useColorModeValue} from "@chakra-ui/react";
 
 
 export const useColor = () =>{
-    const bgApp = useColorModeValue('#F4EEFF', '#2b2e4a')
-    const bgSidebar = useColorModeValue('bg.200', '#53354a')
-    const bgButton = useColorModeValue('#a6b1e1', '#903749')
+    const bgApp = useColorModeValue('#F4EEFF', '#222831')
+    const bgSidebar = useColorModeValue('bg.200', '#393e46')
+    const bgButton = useColorModeValue('#a6b1e1', '#bc6ff1')
+
+    const hover = useColorModeValue('#6774ee','#892cdc')
+
+    const gradientFrom = useColorModeValue('#444a76', '#862bd8')
+    const gradientTo = useColorModeValue('#a5b0e0', '#b768ef')
 
 
-    const gradientFrom = useColorModeValue('#444a76', '#d24146')
-    const gradientTo = useColorModeValue('#a5b0e0', '#913749')
-
-
-    const color = useColorModeValue('gray.800','white')
+    const color = useColorModeValue('#292524','white')
 
     return{
+        hover,
         bgButton,
         gradientFrom,
         gradientTo,

@@ -8,6 +8,7 @@ import {Flex} from "@chakra-ui/react";
 import MediaItem from "@/shared/ui/MediaItem";
 import LikedButton from "@/shared/ui/LikedButton";
 import {useOnPlay} from "@/hooks/useOnPlay";
+import {useColor} from "@/shared/config/ColorMode";
 
 interface LikedContentProps {
     songs:Song[]
@@ -18,6 +19,8 @@ const LikedContent = ({songs}:LikedContentProps) => {
     const { isLoading, user } = useUser();
 
     const onPlay = useOnPlay(songs)
+
+    const {hover} = useColor()
 
     useEffect(() =>{
         if(!isLoading && !user){
@@ -39,7 +42,7 @@ const LikedContent = ({songs}:LikedContentProps) => {
         <Flex  direction={'column'} columnGap={'2'}  w={'full'} p={6}>
             {
                 songs.map((item) =>
-                    <Flex key={item.id} align={'center'} rowGap={4} _hover={{bg:'bg.300'}} rounded={'lg'}  w={'full'}>
+                    <Flex key={item.id} align={'center'} rowGap={4} _hover={{bg:hover}} rounded={'lg'}  w={'full'}>
                         <Flex flex={1}>
                             <MediaItem data={item} onClick={(id:string) => onPlay(id)}/>
                         </Flex>

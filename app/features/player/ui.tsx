@@ -7,10 +7,14 @@ import useGetSongById from "@/hooks/useGetSongById";
 import {useLoadSongUrl} from "@/hooks/useLoadSongUrl";
 import {Box} from "@chakra-ui/react";
 import PlayerContent from "@/entities/player-content/PlayerContent";
+import {useColor} from "@/shared/config/ColorMode";
 
 const Player = () => {
 
     const player = usePlayer();
+
+    const {bgButton} = useColor()
+
 
     const { song } = useGetSongById(player.activeId);
 
@@ -25,7 +29,7 @@ const Player = () => {
         <Box
             position={'fixed'}
             bottom={0}
-            bg={'red.300'}
+            bg={bgButton}
             w={'full'}
             py={2}
             h={'80px'}

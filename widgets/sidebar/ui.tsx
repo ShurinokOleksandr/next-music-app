@@ -2,11 +2,10 @@
 import {usePathname} from "next/navigation";
 import {HiHome} from "react-icons/hi";
 import {BiSearch} from "react-icons/bi";
-import {Box, Flex, useColorModeValue} from "@chakra-ui/react";
+import {Box, Flex} from "@chakra-ui/react";
 import SidebarItem from "@/shared/ui/SidebarItem";
 import Library from "@/entities/library/ui";
 import {Song} from "@/types";
-import usePlayer from "@/hooks/usePlayer";
 import {useColor} from "@/shared/config/ColorMode";
 
 interface SidebarProps {
@@ -19,7 +18,7 @@ const Sidebar = ({children,songs}:SidebarProps) => {
 
     const {bgApp,bgSidebar,color} = useColor()
 
-    const player = usePlayer()
+
 
     const routes = [
         {
@@ -52,7 +51,7 @@ const Sidebar = ({children,songs}:SidebarProps) => {
                </Box>
            </Flex>
             <Flex  as={'main'} h={'full'} flex={'1 1 0%'} overflowY={'auto'} py={2}>
-                <Box  bg={bgApp} h={'full'} w={'full'} borderRadius={'lg'} overflow={'hidden'} overflowY={'auto'}>
+                <Box bg={bgSidebar} h={'full'} w={'full'} borderRadius={'lg'} overflow={'hidden'} overflowY={'auto'}>
                     {children}
                 </Box>
             </Flex>

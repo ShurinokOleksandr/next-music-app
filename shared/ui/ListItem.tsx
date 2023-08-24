@@ -1,9 +1,9 @@
 'use client'
-import {Box,Text, Flex} from "@chakra-ui/react";
+import {Box, Flex, Text} from "@chakra-ui/react";
 import React from "react";
 import {useRouter} from "next/navigation";
 import {Image} from "@chakra-ui/next-js";
-import {FaPlay} from "react-icons/fa";
+import {useColor} from "@/shared/config/ColorMode";
 
 interface ListItemProps{
     image:string
@@ -13,6 +13,7 @@ interface ListItemProps{
 
 const ListItem = ({image,name,href}:ListItemProps) => {
     const router = useRouter()
+    const {hover,bgButton} = useColor()
 
     const onClick = () => {
 
@@ -20,16 +21,25 @@ const ListItem = ({image,name,href}:ListItemProps) => {
     }
 
     return (
-        <Flex onClick={onClick} as={'li'} cursor={'pointer'}    position={'relative'} align={'center'} rounded={'md'} overflow={'hidden'} columnGap={4} pr={4} bg={'bg.100'} _hover={{bg:'bg.200'}}>
+        <Flex
+            onClick={onClick}
+            as={'li'}
+            cursor={'pointer'}
+            position={'relative'}
+            align={'center'}
+            rounded={'md'}
+            overflow={'hidden'}
+            columnGap={4}
+            pr={4}
+            bg={bgButton}
+            _hover={{bg:hover}}
+        >
             <Box position={'relative'} minH={'64px'} minW={'64px'}>
                 <Image  fill={true}  src={image} alt={'image'}/>
             </Box>
             <Text fontWeight={'semibold'} py={5}>
                 {name}
             </Text>
-            <Flex position={'absolute'} rounded={'full'} align={'center'} justify={'center'} bg={'green.500'} p={4} right={0}>
-                <FaPlay color={'black'}/>
-            </Flex>
         </Flex>
     );
 };

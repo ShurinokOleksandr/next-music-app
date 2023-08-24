@@ -9,7 +9,7 @@ import SearchContent from "@/entities/search-content/SearchContent";
 
 interface SearchProps {
     searchParams: { title: string }
-};
+}
 export const revalidate = 0;
 
 const Search = async ({ searchParams }: SearchProps) => {
@@ -26,9 +26,9 @@ const Search = async ({ searchParams }: SearchProps) => {
 
         >
             <Header>
-                <Flex mb={2} direction={'column'} columnGap={6}>
-                    <Heading as={'h1'} >
-                        ds
+                <Flex   direction={'column'} columnGap={6}>
+                    <Heading as={'h1'} mb={4}>
+                        Search songs !
                     </Heading>
                     <SearchInput/>
                 </Flex>

@@ -6,12 +6,14 @@ import {Box, Flex,Text} from "@chakra-ui/react";
 import {Image} from "@chakra-ui/next-js";
 import likedImg from '../../public/liked.png'
 import PlayButton from "@/shared/ui/PlayButton";
+import {useColor} from "@/shared/config/ColorMode";
 interface SongItemProps {
     data:Song
     onClick:(id:string) => void
 }
 
 const SongItem = ({data,onClick}:SongItemProps) => {
+    const {hover,bgButton} = useColor()
 
     const imagePath = useLoadImage(data)
 
@@ -25,9 +27,9 @@ const SongItem = ({data,onClick}:SongItemProps) => {
             rounded={'md'}
             overflow={'hidden'}
             rowGap={4}
-            bg={'bg.100'}
+            bg={bgButton}
             cursor={'pointer'}
-            _hover={{bg:'bg.300'}}
+            _hover={{bg:hover}}
             p={3}
         >
             <Box

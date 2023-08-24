@@ -19,7 +19,7 @@ const SidebarItem = ({label,href, icon,active}:SidebarItemProps) => {
     return (
         <Link
             href={href}
-            color={active ? 'orange' : color}
+            color={active ? '#bc6ff1' : color}
             fontSize={'18px'}
             _hover={{textDecor:'none',transition:'ease-in-out',color:color,}}
         >
