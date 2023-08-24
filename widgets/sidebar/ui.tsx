@@ -18,8 +18,6 @@ const Sidebar = ({children,songs}:SidebarProps) => {
 
     const {bgApp,bgSidebar,color} = useColor()
 
-
-
     const routes = [
         {
             icon:HiHome,
